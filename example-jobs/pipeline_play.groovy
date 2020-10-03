@@ -1,5 +1,4 @@
 import jenkins.automation.builders.PipelineJobBuilder
-String filePath = "./playbook.groovy"
 String pipelineScript(String filePath) {
     File file = new File(filePath)
     String utf8Content = file.getText("UTF-8")
@@ -9,7 +8,7 @@ String pipelineScript(String filePath) {
 new PipelineJobBuilder(
         name: 'Hello Pipeline With Script',
         description: 'This is a simple pipeline job',
-        pipelineScript: pipelineScript(),
+        pipelineScript: pipelineScript('playbook.groovy'),
         sandboxFlag: true
 ).build(this).with {
     logRotator {
