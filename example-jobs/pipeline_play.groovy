@@ -4,7 +4,7 @@ def pipelineScript = """
 #!groovy
 
 def projectProperties = [
-        [$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '5']],
+        [\$class: 'BuildDiscarderProperty', strategy: [\$class: 'LogRotator', numToKeepStr: '5']],
 ]
 
 properties(projectProperties)
