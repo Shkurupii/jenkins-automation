@@ -1,6 +1,6 @@
 import jenkins.automation.builders.PipelineJobBuilder
 
-def pipelineScript = '''
+def pipelineScript = """
 #!groovy
 
 def projectProperties = [
@@ -20,7 +20,7 @@ node() {
     }
     stage('Run playbook') {
         timeout(45) {
-            sh \\'\\'\\'#!/usr/bin/env bash
+            sh '''#!/usr/bin/env bash
                 cp -rf ${VAULT_PASSWORD_FILE} ${WORKSPACE}/.vault_password
                 pip install mitogen --target . --no-deps
                 export ANSIBLE_STRATEGY_PLUGINS=ansible_mitogen/plugins/strategy
@@ -30,11 +30,11 @@ node() {
 
                 ansible-playbook ${PLAYBOOK} -i inventory/${inventory} --limit ${LIMIT} --vault-id .vault_password ${USER_EXTRA}
                 rm -f ${WORKSPACE}/.vault_password
-                \\'\\'\\'
+                '''
         }
     }
 }
-'''
+"""
 
 
 new PipelineJobBuilder(
