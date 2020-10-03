@@ -8,7 +8,7 @@ String pipelineScript(String filePath) {
 new PipelineJobBuilder(
         name: 'Hello Pipeline With Script',
         description: 'This is a simple pipeline job',
-        pipelineScript: pipelineScript('example-jobs/playbook.groovy'),
+        pipelineScript: pipelineScript('${WORKSPACE}/example-jobs/playbook.groovy'),
         sandboxFlag: true
 ).build(this).with {
     logRotator {
