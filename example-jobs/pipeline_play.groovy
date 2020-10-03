@@ -1,6 +1,5 @@
 import jenkins.automation.builders.PipelineJobBuilder
-
-def filePath = "playbook.groovy"
+String filePath = "./playbook.groovy"
 String pipelineScript(String filePath) {
     File file = new File(filePath)
     String utf8Content = file.getText("UTF-8")
