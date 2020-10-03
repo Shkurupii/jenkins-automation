@@ -1,4 +1,5 @@
 import jenkins.automation.builders.PipelineJobBuilder
+
 String pipelineScript(String filePath) {
     File file = new File(filePath)
     String utf8Content = file.getText("UTF-8")
