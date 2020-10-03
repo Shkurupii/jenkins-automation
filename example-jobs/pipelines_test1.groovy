@@ -4,12 +4,12 @@ def pipelineScript = """
     pipeline {
         agent { label 'master' }
         parameters {
-            string defaultValue: 'fuck off', description: '', name: 'foo', trim: true
+            string defaultValue: 'fuck off', description: '', name: 'foo'
         }
         stages {
             stage('hello') {
                 steps {
-                    sh 'echo "Hello World"'
+                    sh 'echo \"\${foo}\"'
                 }
             }
         }
